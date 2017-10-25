@@ -7,7 +7,7 @@ var d3 = require('d3');
  *
  * Liquid Fill Gauge v1.1
  */
-function liquidGillGaugeDefaultSettings() {
+function liquidFillGaugeDefaultSettings() {
   return {
     minValue: 0,             // The gauge minimum value
     maxValue: 100,           // The gauge maximum value
@@ -37,7 +37,7 @@ function liquidGillGaugeDefaultSettings() {
 
 function loadLiquidFillGauge(elementID, value, config) {
   if (config == null) {
-    config = liquidGillGaugeDefaultSettings();
+    config = liquidFillGaugeDefaultSettings();
   }
 
   var gauge = d3.select('#' + elementID);
@@ -280,6 +280,6 @@ function loadLiquidFillGauge(elementID, value, config) {
 }
 
 module.exports = {
-  liquidGillGaugeDefaultSettings,
+  liquidFillGaugeDefaultSettings,
   loadLiquidFillGauge
 };
