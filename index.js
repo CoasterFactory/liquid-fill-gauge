@@ -41,10 +41,8 @@ function loadLiquidFillGauge(elementID, value, config) {
   }
 
   var gauge = d3.select('#' + elementID);
-
   var gWidth = parseInt(gauge.style('width'));
   var gHeight = parseInt(gauge.style('height'));
-
   var radius = Math.min(gWidth, gHeight) / 2;
   var locationX = (gWidth / 2) - radius;
   var locationY = (gHeight / 2) - radius;
@@ -276,7 +274,6 @@ function loadLiquidFillGauge(elementID, value, config) {
   }
 
   return new GaugeUpdater();
-
 }
 
 module.exports = {
