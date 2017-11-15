@@ -142,7 +142,7 @@ function loadLiquidFillGauge(elementID, value, config) {
   var clipArea = d3.area()
     .x(function(d) { return waveScaleX(d.x); })
     .y0(function(d) { return waveScaleY(Math.sin(Math.PI * 2 * config.waveOffset * -1 + Math.PI * 2 * (1 - config.waveCount) + d.y * 2 * Math.PI)); })
-    .y1(function(d) { return (fillCircleRadius * 2 + waveHeight); });
+    .y1(function() { return (fillCircleRadius * 2 + waveHeight); });
 
   var waveGroup = gaugeGroup.append('defs')
     .append('clipPath')
@@ -249,7 +249,7 @@ function loadLiquidFillGauge(elementID, value, config) {
         ? d3.area()
           .x(function(d) { return waveScaleX(d.x); } )
           .y0(function(d) { return waveScaleY(Math.sin(Math.PI * 2 * config.waveOffset * -1 + Math.PI * 2 * (1 - config.waveCount) + d.y * 2 * Math.PI));} )
-          .y1(function(d) { return (fillCircleRadius * 2 + waveHeight); } )
+          .y1(function() { return (fillCircleRadius * 2 + waveHeight); } )
         : clipArea;
 
       var newWavePosition = config.waveAnimate ? waveAnimateScale(1) : 0;
@@ -277,6 +277,6 @@ function loadLiquidFillGauge(elementID, value, config) {
 }
 
 module.exports = {
-  liquidFillGaugeDefaultSettings,
-  loadLiquidFillGauge
+  liquidFillGaugeDefaultSettings: liquidFillGaugeDefaultSettings,
+  loadLiquidFillGauge: loadLiquidFillGauge
 };
